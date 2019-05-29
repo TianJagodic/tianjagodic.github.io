@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta lang="en">
+		<meta charset = "utf-8">
+		<meta name="keywords" content="Render farm">
+		<meta name="description" content="A render farm for blender files">
+		<meta name="author" content="TitanRenderFarm, Titan Studios">
+		<link rel="stylesheet" type="text/css" href="../indexCSS.css" />
+		<link rel="icon" type="image/x-icon" href="../Images/TitanLogoIcon.ico">
+
+		<!-- Google Font Roboto -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+		<title>Titan Render Farm - Guide</title>
+		
+	</head>
+	<body>
+		<header>
+			<nav class="navbar navbar-inverse">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#meni">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+
+					</button>
+					<a class="navbar-brand" href="../index.html"><img height="70" width="150"src="../Images/Poster.png" alt="Titan Logo" class="imgLogo"></a>
+				</div>
+
+				<!-- Menu that shrinks the more you squezzz on -->
+				<div class="collapse navbar-collapse" id="meni">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="../index.html">Home</a></li>
+						<li> <a href="../Lower/renders.html">Renders</a></li>
+						<li> <a href>
+						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Documentation <span class="caret"></span></a>
+
+							<!-- Spustni meni -->
+						    <ul class="dropdown-menu">
+								<li><a href="rules.html">Rules</a></li>
+								<li><a href="guide.html">Guide</a></li>
+							</ul>
+						</li>
+						<li><a href="login.html">LOGIN</a></li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+
+		<div class="container">
+			<div class="row">
+				<nav>
+					<div class="col-sm-3">
+					<div class="g_box">
+						<h3 class="g_big_title">Contents</h3>
+						<div class="g_text">
+						<ul class="list-unstyled">
+							<li> <a href="#prep">Prepearing the .blend file </a></li>
+							<li> <a href="#up">Uploading </a></li>
+							<li> <a href="#down">Downloading </a></li>
+						</ul>
+					</div>
+					</div>
+					</div>
+				</nav>
+				<article>
+					<div class="col-sm-9">
+						<div class="g_box">
+						<div class="g_text">
+						<h2 id="prep" class="g_big_title">Prepearing the .blend file</h2>
+						<p class="g_small_title"> Frames</p>
+						<p>For single images you must limit the End Frame of the render to 1, so that only one frame is renderd.</p>
+
+						<center>
+						<img src="DocImages/FrameLimit.png" class="g_images" class="image-respnsive">
+						</center>
+
+
+						<p>For animations set the frame limit to what ever you need be sure tho to check at what frame rate the animation is set to and set the frame limit accrodingly. Also do note that this will take a long time to render so be aware of that, and that 60 fps is a lot fo and animation, you might want to use 24fps or 30fps, asspecialy if you are using green screen.</p>
+
+						<p class="g_small_title">Color space</p>
+						<p>The default color space is sRGB witch is not ideal for creating photo realistic renders scence is has a limitied dynamic range. Our blender set up uses Filmic Blender addon witch has a much greater dynamic range. In order to use the Filmic blender set up you must down load it trough the link <a href="https://github.com/sobotka/filmic-blender">here</a> and install it in your blender so that you have the option to select it when preping the .blend file for upload. Setting the color space is easy and recuires only one tab to be changed, it can be found under scene setting and under color managment </p>
+
+						<center>
+						<img src="DocImages/ColorSpace.png" class="g_images" class="image-responsive">
+						</center>
+
+						<p class="g_small_title">How you set it is how you get it!</p>
+						<p>Be sure to double check if you have set up every thing, once you upload there is no going back, you get what you get. We recomend that you do a test render on your own machine with a smaller resolution and less passed with raytracing in order to get a small previwer of what you are making. </p>
+
+						<h2 id="up" class="g_big_title">Uploading</h2>
+
+							<p>Once you have your file all set up and double checked you simply select it in the upload section and it will be placed in the que for rendering. Unfortenetly we do not offer render progress and que status so you will not be alble to monitor progress on your render while it is rendering. Do note that your render will be placed in the Renders section of the website.</p>
+
+						<h2 id="down" class="g_big_title">Downloading</h2>
+
+							<p>Once your render has been complited you will be notifed via email, and you can retrive your finished render in the same place you uploaded it. The finished redner and original file can be downloaded.</p>
+					</div>
+					</div>
+					</div>
+				</article>
+
+
+			</div>
+		</div>
+
+
+	</body>
+
+	<!-- BootStrap JavaScripts -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</html>

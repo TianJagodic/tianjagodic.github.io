@@ -1,0 +1,229 @@
+body{
+	margin: 0 !important;
+	padding: 0 !important;
+	background-image: url("Images/background.png");
+	background-size: 5000px;
+	font-family: Roboto, sans-serif; 
+}
+
+.h3h3{
+	font-family: "Roboto";
+	color: Grey;
+}
+
+
+.centerTextClass{
+	float: top;
+	background-color: rgba(247,198,123,0.9);
+	margin: 7.5%;
+	padding: 1%;
+	color: rgb(88,87,61);
+	font-family: "Open Sans";
+	font-size: 200%;
+	border-style: ridge;
+	border-color: DimGrey;
+	box-shadow: 5px 5px	6px black;
+}
+
+.foot{
+	background-color: rgba(247,198,123,0.9); 
+	font-family: "Open Sans";
+	color: rgb(88,87,61);
+	padding: 1%;
+}
+
+footer { 
+  display: block;
+}
+
+.imgLogo{
+	
+}
+
+.imgRenders{
+	width: 400px;
+	height: 225px;
+	border-radius: 5px;
+	float: inherit;
+	margin: 50px 50px;
+	box-shadow: 5px 5px 10px DimGrey;
+}
+
+.ikona{
+	width: 200px;
+	height: 150px;
+	
+}
+
+.g_small_title{
+	color: rgb(88,87,61);
+	font-family:  Roboto, sans-serif; 
+	font-size: 150%;
+	font-weight: bold;
+}
+
+.g_big_title{
+	color: rgb(88,87,61);
+	font-family:  Roboto, sans-serif; 
+	font-size: 250%;
+	font-weight: bold;
+}
+
+.g_h2{
+	color: rgb(88,87,61);
+	font-family:  Roboto, sans-serif; 
+	font-size: 130%;
+	font-weight: bold;
+}
+
+.g_images{
+	width: 25%;
+	height: 25%;
+	margin: 10px;
+	box-shadow: 5px 5px 5px Black;
+}
+
+.g_text{
+	font-family: Roboto, sans-serif;
+	font-size: 110%;
+	
+}
+
+.g_box{
+	border-left-style: solid;
+	border-left-width: 5px;
+	border-left-color: rgb(88,87,67);
+	background-color: rgba(90,90,90, 0.3);
+	padding-left: 3px;
+	
+}
+
+/*** Header: Logotip in navigacija ********/
+.navbar {
+	margin-bottom: 0;
+	border-radius: 0;
+	background-color: #fff;
+	color: rgba(60,60,60,0.9);
+	border: 0;
+	font-size: 1.2em;
+}
+
+.navbar-inverse .navbar-toggle {
+	border-color: #aaa;
+	background-color: #aaa;
+	margin-top: 30px;
+}
+
+.navbar-inverse .navbar-toggle:focus, 
+.navbar-inverse .navbar-toggle:hover {
+    border-color: #666;
+	background-color: #666;
+}
+
+.navbar-brand {
+	float: left;
+	min-height: 85px;
+	padding: 10px 0 0 25px;
+}
+
+.navbar-inverse .navbar-nav { margin-top: 40px; }
+
+.navbar-inverse .navbar-nav .active a,
+.navbar-inverse .navbar-nav .active a:focus,
+.navbar-inverse .navbar-nav .active a:hover {
+	color: #000;
+	background-color: #fff;
+}
+
+.navbar-inverse .navbar-nav li a {
+	color: #999;
+	padding: 3px 8px;
+}
+
+.navbar-inverse .navbar-nav li a:hover { color: #333; }
+
+@media (max-width: 767px) {
+	.navbar-inverse .navbar-nav {
+		margin-top: 5px;
+		padding-left: 25px;
+	}
+}
+
+/*Carousel*/
+.item img {	width: 100%; }
+
+.carousel-caption {
+	top: 70%;
+	transform: translateY(-70%);
+}
+
+.carousel-caption p {
+	font-size: 1.5em;
+	color: #bbb;	
+}
+
+.carousel-caption button { margin-top: 1.5em; }
+
+.carousel-caption .btn {
+	font-size: 1.2em;
+	color: #fff;
+	background-color: #553d7b;
+	padding: 12px 22px;
+	border: 2px solid #fff;
+}
+
+.carousel-caption .btn:hover {
+	color: #553d7b;
+	background-color: #fff;
+}
+
+@media (max-width: 1200px) {
+	.carousel-caption p {
+		font-size: 1.3em;
+	}
+	.carousel-caption button {
+		margin-top: 0em;	
+	}
+}
+
+@media (max-width: 940px) {
+	.carousel-caption button {
+		display: none;
+	}
+	.carousel-caption p {
+		font-size: 1.2em;
+	}
+}
+
+@media (max-width: 700px) {
+	.carousel-caption p {
+		font-size: 1.1em;
+		margin-top: -20px;
+	}
+}
+
+@media (max-width: 525px) {
+	.carousel-caption button {
+		display: none;
+	}
+	.carousel-caption p {
+		display: none;
+	}
+}
+
+/** Upload section**/
+.box__dragndrop,
+.box__uploading,
+.box__success,
+.box__error {
+  display: none;
+}
+
+
+.upload_box{
+	border-style: dotted;
+	width: 100%;
+	height: 400px;
+	font-family: Roboto, sans-serif;
+	background-color: rgba(247,198,123,0.5);
+}
