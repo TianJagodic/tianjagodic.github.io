@@ -98,6 +98,32 @@ footer {
 	
 }
 
+/* Login stuff*/
+.buttonStyle{
+	background-color: #52ff40;
+	padding: 5px 30px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border: none;
+	cursor: pointer;
+}
+
+.buttonStyle:hover{
+	opacity: 0.8;
+}
+
+.Error{
+	color: #ff0a4a;
+	font-family: Roboto, sans-serif;
+	font-size: 110%;
+}
+
+.g_login{
+	font-family: Roboto, sans-serif;
+	font-size: 110%;
+
+}
+
 /*** Header: Logotip in navigacija ********/
 .navbar {
 	margin-bottom: 0;
