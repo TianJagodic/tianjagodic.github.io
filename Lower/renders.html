@@ -58,7 +58,7 @@
 
 
 		<center>
-		<div alt="render contents">
+		<div alt="render contents" id="listOfImages">
 			<img src="../Images/Render1.png" class="imgRenders">
 			<img src="../Images/Render2.png" class="imgRenders">
 			<img src="../Images/Render3.png" class="imgRenders">
@@ -66,6 +66,35 @@
 		</div>
 		</center>
 	</body>
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#config-web-app -->
+
+	<script>
+		// Your web app's Firebase configuration
+		var firebaseConfig = {
+			apiKey: "AIzaSyBjPdbFEFvwXaWuSAeLMh--atoEwQI60Cg",
+			authDomain: "website-241715.firebaseapp.com",
+			databaseURL: "https://website-241715.firebaseio.com",
+			projectId: "website-241715",
+			storageBucket: "website-241715.appspot.com",
+			messagingSenderId: "43182354699",
+			appId: "1:43182354699:web:913425e8d744d551"
+		};
+		// Initialize Firebase
+		firebase.initializeApp(firebaseConfig);
+		const db = firebase.firestore();
+
+		db.settings({timestampsInSnapshots: true});
+
+	</script>
+
+	<script src="app.js"></script>
 
 	<!-- BootStrap JavaScripts -->
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

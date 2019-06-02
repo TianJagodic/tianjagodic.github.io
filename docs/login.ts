@@ -1,6 +1,11 @@
 var GotCorrectName = false;
 var GotCorrectPass = false;
 
+class Globals{
+    static IsLoggedIn : boolean = false;
+}
+
+
 function getName(input : String){
     if(input != null){
         if(input == "Titan"){
@@ -42,6 +47,8 @@ function CollectData(){
     if(GotCorrectName && GotCorrectPass){
         document.getElementById("error").innerText = "We gucci";
         document.getElementById("loginText").innerText = (<HTMLInputElement>document.getElementById("nameInput")).value;
+        Globals.IsLoggedIn = true;
+        window.location.href = "upload.html";
     }
     else{
         document.getElementById("error").innerText = "Login Error";
