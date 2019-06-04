@@ -1,4 +1,4 @@
-const ImageList = document.querySelector('#listOfImages');
+const ImageList = document.querySelector("#listOfImages");
 
     function renderImage(doc){
         let img = document.createElement('img');
