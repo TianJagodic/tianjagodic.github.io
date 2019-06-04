@@ -8,7 +8,7 @@ class Globals{
 
 function getName(input : String){
     if(input != null){
-        if(input == "Titan"){
+        if(input.toLowerCase() == "titan"){
             GotCorrectName = true;
         }
         else{

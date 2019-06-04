@@ -8,7 +8,7 @@ var Globals = /** @class */ (function () {
 }());
 function getName(input) {
     if (input != null) {
-        if (input == "Titan") {
+        if (input.toLowerCase() == "titan") {
             GotCorrectName = true;
         }
         else {
