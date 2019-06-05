@@ -31,9 +31,9 @@ body{
 }
 
 .foot{
-	background-color: rgba(199,203,203,0.9);
+	background-color: #333333;
 	font-family: "Open Sans";
-	color: rgb(90,100,102);
+	color: whitesmoke;
 	padding: 1%;
 }
 
