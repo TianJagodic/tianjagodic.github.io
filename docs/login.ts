@@ -1,6 +1,7 @@
 var GotCorrectName = false;
 var GotCorrectPass = false;
 
+
 class Globals{
     static IsLoggedIn : boolean = false;
 }

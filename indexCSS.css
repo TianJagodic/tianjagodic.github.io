@@ -100,7 +100,7 @@ footer {
 	border-left-style: solid;
 	border-left-width: 5px;
 	border-left-color: rgb(90,100,102);
-	background-color: rgba(90,90,90, 0.3);
+	background-color: rgba(90,90,90, 0.1);
 	padding-left: 3px;
 	
 }
@@ -182,67 +182,6 @@ footer {
 	}
 }
 
-/*Carousel*/
-.item img {	width: 100%; }
-
-.carousel-caption {
-	top: 70%;
-	transform: translateY(-70%);
-}
-
-.carousel-caption p {
-	font-size: 1.5em;
-	color: #bbb;	
-}
-
-.carousel-caption button { margin-top: 1.5em; }
-
-.carousel-caption .btn {
-	font-size: 1.2em;
-	color: #fff;
-	background-color: #553d7b;
-	padding: 12px 22px;
-	border: 2px solid #fff;
-}
-
-.carousel-caption .btn:hover {
-	color: #553d7b;
-	background-color: #fff;
-}
-
-@media (max-width: 1200px) {
-	.carousel-caption p {
-		font-size: 1.3em;
-	}
-	.carousel-caption button {
-		margin-top: 0em;	
-	}
-}
-
-@media (max-width: 940px) {
-	.carousel-caption button {
-		display: none;
-	}
-	.carousel-caption p {
-		font-size: 1.2em;
-	}
-}
-
-@media (max-width: 700px) {
-	.carousel-caption p {
-		font-size: 1.1em;
-		margin-top: -20px;
-	}
-}
-
-@media (max-width: 525px) {
-	.carousel-caption button {
-		display: none;
-	}
-	.carousel-caption p {
-		display: none;
-	}
-}
 
 /** Upload section**/
 .box__dragndrop,
@@ -258,5 +197,26 @@ footer {
 	width: 100%;
 	height: 400px;
 	font-family: Roboto, sans-serif;
-	background-color: rgba(247,198,123,0.5);
+	background-color: rgba(90,100,100,0.5);
 }
+
+.upload_text{
+	padding-top: 50%;
+}
+
+.box__file{
+	text-align-all: center;
+	padding-top: 22%;
+	font-family: Roboto, sans-serif;
+}
+
+.box__button{
+	background-color: #333333;
+}
+
+box__dragndrop{
+	text-align-all: center;
+	padding-top: 22%;
+	font-family: Roboto, sans-serif;
+}
+
