@@ -1,45 +1,29 @@
 var GotCorrectName = false;
 var GotCorrectPass = false;
+var names;
+var passes;
 var Globals = /** @class */ (function () {
     function Globals() {
     }
     Globals.IsLoggedIn = false;
     return Globals;
 }());
-function getName(input) {
-    if (input != null) {
-        if (input.toLowerCase() == "titan") {
+function getName(inputName, inputPass) {
+    if (inputName != null && inputPass != null) {
+        if (names.indexOf(inputName) == passes.indexOf(inputPass)) {
             GotCorrectName = true;
         }
         else {
             GotCorrectName = false;
-            console.log("name:" + input);
         }
     }
     else {
         GotCorrectName = false;
     }
 }
-function getPass(input) {
-    if (input != null) {
-        if (input == "hello") {
-            console.log("pass:" + input);
-            GotCorrectPass = true;
-        }
-        else {
-            GotCorrectPass = false;
-            console.log(input);
-        }
-    }
-    else {
-        GotCorrectPass = false;
-        console.log(input);
-    }
-}
 function CollectData() {
     console.log("We got a click");
-    getName(document.getElementById("nameInput").value);
-    getPass(document.getElementById("passInput").value);
+    getName(document.getElementById("nameInput").value, document.getElementById("passInput").value);
     if (GotCorrectName && GotCorrectPass) {
         document.getElementById("error").innerText = "We gucci";
         document.getElementById("loginText").innerText = document.getElementById("nameInput").value;
@@ -52,3 +36,11 @@ function CollectData() {
 }
 console.log("login.js init");
 document.getElementById("LoginButton").onclick = CollectData;
+db.collection('users').get().then(function (snapshot) {
+    console.log(snapshot.docs);
+    snapshot.docs.forEach(function (doc) {
+        names.append(doc.data().name);
+        passes.append(doc.data().password);
+    });
+    //console.log(names);
+});
