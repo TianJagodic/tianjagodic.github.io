@@ -1,1 +1,316 @@
  
+<div>
+    <img id="imageDisplay" src="https://work.radio.si/StaticFiles/Images/default.png" height="auto" width="100%" />
+    <br />
+    <div style="width: 100%; display: inline-flex;">
+        <button onclick="addNewPhotoEvent()" style="margin: auto" type="button" class="customButton MD_shadow">Dodaj sliko</button>
+        <button onclick="SaveAppImageEvent()" style="margin: auto" type="button" class="customButton MD_shadow">Shrani to sliko</button>
+    </div>
+
+    <div style="display: none">
+        <input type="file" id="conImage" accept="image/*" />
+    </div>
+</div>
+<form method="post"></form>
+<script>//
+
+    function addNewPhotoEvent() {
+        document.getElementById('conImage').click();
+    }
+
+    //</script>
+<script>//
+    document.getElementById('conImage').onchange = () => {
+        if (document.getElementById('conImage').files.length > 0) {
+            modalCrop.style.display = "block";
+            readURL(document.getElementById('conImage'));
+        }
+    }
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function () {
+                $('#croppr').attr('src', reader.result);
+                document.getElementById('croppr').onload = () => {
+                    startCropper();
+                }
+            }
+            reader.readAsDataURL(input.files[0]); // convert to base64 string
+        }
+    }
+    //</script>
+<!-- The Modal -->
+<div id="myModalCrop" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content" style="z-index: 0;">
+        <span class="closeCrop">&times;</span>
+        <br />
+        <p>Please crop the image</p>
+        <div style="width: 100%">
+            <div style="display: inline-flex; width:100%">
+
+                <div style="width: 70%">
+                    <span style="color: var(--menu-text)">Please crop the image</span>
+                    <img style="width: 100%; height: auto" id="croppr" />
+                </div>
+
+                <div style="width: 29%;margin: auto;">
+                    <span style="color: var(--menu-text)">Crop preview</span>
+                    <img style="width: 100%; height: auto" id="cropprPreview" />
+                </div>
+
+            </div>
+
+            <div style="display: inline-flex; margin-top: 5px;">
+                <button class="customButtonGood" onclick="loadPreview()">Crop</button>
+
+                <button class="customButton" style="margin-left: 5px" onclick="saveAndDestroyModel()">Save and exit</button>
+                <button class="customButton" style="margin-left: 5px" onclick="destroyCropperCloseModal()">Save without exit</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>let imgX = 0;
+        let imgY = 0;
+        let imgW = 0;
+        let imgH = 0;
+        let croppr;
+        function destroyCropperCloseModal() {
+            modalCrop.style.display = "none";
+            croppr.destroy()
+        }
+        function saveAndDestroyModel() {
+            crop()
+            modalCrop.style.Modelisplay = "none";
+            croppr.destroy()
+        }
+        function startCropper(width, height) {
+            var filesToUploads = document.getElementById('conImage').files;
+            var file = filesToUploads[0];
+            if (file) {
+                var reader = new FileReader();
+                // Set the image once loaded into file reader
+                reader.onload = function (e) {
+                    var img = document.createElement("img");
+                    img.src = e.target.result;
+                    img.onload = function () {
+                        const image = document.getElementById('croppr');
+                        croppr = new Cropper(image, {
+                            aspectRatio: 1,
+                            viewMode: 1,
+                            crop(event) {
+                                imgX = event.detail.x;
+                                imgY = event.detail.y;
+                                imgW = event.detail.width;
+                                imgH = event.detail.height;
+                            },
+                        });
+                    }
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+        function loadPreview() {
+            if (window.File && window.FileReader && window.FileList && window.Blob) {
+                var filesToUploads = document.getElementById('conImage').files;
+                var file = filesToUploads[0];
+                if (file) {
+                    var reader = new FileReader();
+                    // Set the image once loaded into file reader
+                    reader.onload = function (e) {
+                        var img = document.createElement("img");
+                        img.src = e.target.result;
+                        img.onload = function () {
+                            var workCan = document.createElement("canvas");
+                            workCan.width = Math.floor(imgW);  // set the canvas resolution to the cropped image size
+                            workCan.height = Math.floor(imgH);
+                            var ctx = workCan.getContext("2d");
+                            ctx.drawImage(img, Math.floor(imgX), Math.floor(imgY), Math.floor(imgW), Math.floor(imgH), 0, 0, Math.floor(imgW), Math.floor(imgH));
+                            console.log(ctx)
+                            dataurl = workCan.toDataURL(file.type);
+                            document.getElementById('cropprPreview').src = dataurl;
+                        }
+                    }
+                    reader.readAsDataURL(file);
+                } else {
+                    alert('The File APIs are not fully supported in this browser.');
+                }
+            }
+        }
+        function crop() {
+            console.log(imgX + "-" + imgY + "-" + imgW + "-" + imgH);
+            if (window.File && window.FileReader && window.FileList && window.Blob) {
+                var filesToUploads = document.getElementById('conImage').files;
+                var file = filesToUploads[0];
+                if (file) {
+                    var reader = new FileReader();
+                    // Set the imModelge once loaded into file reader
+                    reader.onload = function (e) {
+                        var img = document.createElement("img");
+                        img.src = e.target.result;
+                        img.onload = function () {
+                            var workCan = document.createElement("canvas");
+                            workCan.width = Math.floor(imgW);  // set the canvas resolution to the cropped image size
+                            workCan.height = Math.floor(imgH);
+                            var ctx = workCan.getContext("2d");
+                            ctx.drawImage(img, Math.floor(imgX), Math.floor(imgY), Math.floor(imgW), Math.floor(imgH), 0, 0, Math.floor(imgW), Math.floor(imgH));
+                            console.log(ctx)
+
+                            dataurl = workCan.toDataURL(file.type);
+                            document.getElementById('imageDisplay').src = dataurl;
+                            modalCrop.style.display = "none";
+                        }
+                    }
+                    reader.readAsDataURL(file);
+                } else {
+                    alert('The File APIs are not fully supported in this browser.');
+                }
+            }
+        }</script>
+
+</div>
+
+<script>var modalCrop = document.getElementById("myModalCrop");
+    var spanCrop = document.getElementsByClassName("closeCrop")[0];
+
+    spanCrop.onclick = function () {
+        modalCrop.style.display = "none";
+        destroyCropperCloseModal();
+    }
+    function srcToFile(src, fileName, mimeType) {
+        return (fetch(src)
+            .then(function (res) { return res.arrayBuffer(); })
+            .then(function (buf) { return new File([buf], fileName, { type: mimeType }); })
+        );
+    }</script>
+
+<script>function ClearConImage() {
+        document.getElementById('conImage').value = '';
+    }</script>
+<script>//
+
+    async function SaveAppImageEvent() {
+
+        var formData = new FormData();
+        if (document.getElementById('conImage').files[0] != null) {
+            formData.append("image", await srcToFile(document.getElementById('imageDisplay').src, "ProfilePicture.png", "image/png"));
+        }
+
+        formData.append("ArtistID", "@Model.ArtistID");
+
+        $.ajax({
+            type: "POST",
+            url: "/Images/AppImage?handler=SaveAppImage",
+            data: formData,
+            contentType: false,
+            processData: false,
+            headers: {
+                RequestVerificationToken: $('input:hidden[name="__RequestVerificationToken"]').val()
+            }
+        }).done(function (response) {
+            if (typeof response == "object") {
+                if (response.isError) {
+                    swal({
+                        title: 'Error!',
+                        text: response.error,
+                        icon: 'error'
+                    }).then(function () {
+                    });
+                } else {         
+
+                    swal({
+                        title: 'Slika shranjena!',
+                        text: '',
+                        icon: 'success'
+                    }).then(function () {
+                       
+                    });
+                }
+            } else {
+                swal({
+                    title: 'Error!',
+                    text: 'An error occurred!',
+                    icon: 'error'
+                }).then(function () {
+                });
+            }
+        }).fail(function (err) {
+            swal({
+                title: 'Error!',
+                text: err[0],
+                icon: 'error'
+            }).then(function () {
+            });
+        });
+
+    }
+
+    //</script>
+
+
+//BACKEND
+//BACKEND
+//BACKEND
+//BACKEND
+//BACKEND
+//BACKEND
+//BACKEND
+
+ public class AppImageCrop
+        {
+            public IFormFile image { get; set; }
+            public Guid ArtistID { get; set; }
+        }
+
+public async Task<IActionResult> OnPostSaveAppImageAsync([FromForm] AppImageCrop appImageCrop)
+        {
+            try
+            {
+                var artist = await _appDataBaseContext.Artists.SingleAsync(x => x.ArtistID == appImageCrop.ArtistID);
+
+                var image = appImageCrop.image;
+                string imageID = Guid.NewGuid().ToString();
+
+                string extention = "";
+
+                if (image == null)
+                {
+                   
+                }
+                else
+                {
+                    string uploads = Path.Combine(_env.WebRootPath, "StaticFiles", "Images");
+                    if (image.Length > 0)
+                    {
+                        extention = Path.GetExtension(appImageCrop.image.FileName);
+
+                        if (!Directory.Exists(uploads))
+                        {
+                            Directory.CreateDirectory(uploads);
+                        }
+
+                        string filePath = Path.Combine(uploads, imageID.ToString() + extention);
+                        using Stream fileStream = new FileStream(filePath, FileMode.Create);
+                        await image.CopyToAsync(fileStream);
+
+                        imageID = imageID.ToString() + extention;
+
+                        artist.AppCoverImage = imageID;
+                        _appDataBaseContext.Artists.Update(artist);
+                        await _appDataBaseContext.SaveChangesAsync();
+                    }
+                    else
+                    {
+                       
+                    }
+                }
+
+                return new JsonResult(new { IsError = false, Error = "" });
+            }
+            catch (Exception e)
+            {
+                return new JsonResult(new { IsError = true, Error = e.Message });
+            }
+        }
